@@ -7,6 +7,41 @@
 html{
     height: 100vh;
 }
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20vh;
+    background-color: aqua;
+    color: black;
+    font-size: 24px;
+}
+header h1{
+    font-family: system-ui,monospace;
+    background-color: inherit;
+}
+
+#add-to-library button{
+    background-color: gray;
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+}
+#add-to-library button:active{
+    background-color: black;
+    color: white;
+}
+
+main{
+    background-color: #dadada ;
+    height: 70vh;
+}
 #popUp{
     position: absolute;
     top: 30%;
@@ -37,7 +72,7 @@ html{
     border-radius: 10px;
     background-color:#b1a3a3e3;
 }
-button{
+#popUp button{
     width: 100%;
     height: 40px;
     border: none;
@@ -52,6 +87,7 @@ button{
     display: none;
 }
 #rateBook{
+    border: black 2px solid; height: 50px;
     direction: rtl;
     text-align: left;
 }

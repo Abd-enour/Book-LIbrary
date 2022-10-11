@@ -7,47 +7,55 @@
     <link rel="stylesheet" href="style.css">
     <script src="js.js" defer></script>
     <script src="https://kit.fontawesome.com/3d7ad65c26.js" crossorigin="anonymous" defer></script>
-    <title>Object</title>
+    <title>Book Library</title>
 </head>
-
 <body>
-    <div id="popUp">
-        <div id="closeForm">
-            &times;
+    <header>
+        <h1>My Book Shelf</h1>
+    </header>
+    <main>
+        <div id="add-to-library">
+            <button type="button">Add To Library</button>
         </div>
-        <form action="" id="form">
-            <div class="form-element">
-                <label for="author">Author</label>
-                <input type="text" name="" id="author" class="userInput" placeholder="Author Name" required>
+        <div id="popUp">
+            <div id="closeForm">
+                &times;
             </div>
+            <form action="" id="form">
+                <div class="form-element">
+                    <label for="author">Author</label>
+                    <input type="text" name="" id="author" class="userInput" placeholder="Author Name" required>
+                </div>
 
-            <div class="form-element">
-                <label for="bookTitle">Book Title</label>
-                <input type="text" name="" id="bookTitle" class="userInput" placeholder="Book Title"required>
-            </div>
-                
-            <div class="form-element">
-                <label for="BookPages">Number Of Page</label>
-                <input type="number" name="" id="BookPages" class="userInput" placeholder="Number Of Page"required>
-            </div>
-           <div class="form-element">
-                <span>Have You Read it?</span>
-                <div>YES
-                    <input type="radio" id="yes" name="isRead?" value="Yes">
+                <div class="form-element">
+                    <label for="bookTitle">Book Title</label>
+                    <input type="text" name="" id="bookTitle" class="userInput" placeholder="Book Title"required>
                 </div>
-                <div>NO
-                    <input type="radio" id="no" name="isRead?" value="No">
+
+                <div class="form-element">
+                    <label for="BookPages">Number Of Page</label>
+                    <input type="number" name="" id="BookPages" class="userInput" placeholder="Number Of Page"required>
                 </div>
-            </div>
-            <div id="rateBook" class="hide">
-                <i class="fa-solid fa-star str1"></i>
-                <i class="fa-solid fa-star str2"></i>
-                <i class="fa-solid fa-star str3"></i>
-                <i class="fa-solid fa-star str4"></i>
-                <i class="fa-solid fa-star str5"></i>
-            </div>
-            <button type="submit">Add to Library</button>
-        </form>
-    </div>
+               <div class="form-element">
+                    <span>Have You Read it?</span>
+                    <div>YES
+                        <input type="radio" id="yes" name="isRead?" value="Yes">
+                    </div>
+                    <div>NO
+                        <input type="radio" id="no" name="isRead?" value="No">
+                    </div>
+                </div>
+                <div id="rateBook" class="hide">
+                    <!-- <i class="fa-solid fa-star str1"></i> -->
+                    <!-- <i class="fa-solid fa-star str2"></i> -->
+                    <!-- <i class="fa-solid fa-star str3"></i> -->
+                    <!-- <i class="fa-solid fa-star str4"></i> -->
+                    <!-- <i class="fa-solid fa-star str5"></i> -->
+                </div>
+                <button type="submit">Add to Library</button>
+            </form>
+        </div>
+    </main>
+    <footer></footer>
 </body>
 </html>
