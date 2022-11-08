@@ -22,7 +22,7 @@ noRadioBtn.onclick=()=>{
     checkRadioButton();
 }
 closeForm.onclick=()=>{
-    popUpField.remove();
+    popUpField.style.cssText='z-index:-100';
     overlay.classList.remove("active");
 };
 
@@ -45,7 +45,8 @@ form.addEventListener("submit",(e)=>{
 let addToLibraryBtn= document.getElementById("add-to-library-btn");
 
 addToLibraryBtn.onclick=()=>{
-    createCard();
+    overlay.classList.add('active');
+    popUpField.style.cssText='z-index:1';
 }
 
 function createCard(){
