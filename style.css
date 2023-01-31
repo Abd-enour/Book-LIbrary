@@ -30,7 +30,7 @@ main{
     gap:10px;
     justify-items: center;
 }
-#add-to-library-btn{
+#add-btn{
     background-color: gray;
     width: 200px;
     height: 40px;
@@ -43,11 +43,11 @@ main{
     margin: 10px;
     grid-column: 1/-1;
 }
-#add-to-library-btn:hover{
+#add-btn:hover{
     background-color: blue;
     color: #feff00;
 }
-#add-to-library-btn:active{
+#add-btn:active{
     background-color: black;
     color: white;
 }
@@ -58,7 +58,8 @@ main{
     right: 40%;
     border-radius: 5px;
     padding: 20px;
-    z-index: 10;
+    z-index: 1;
+    scale: 1.5;
     background-color: antiquewhite;
 }
 #closeForm{

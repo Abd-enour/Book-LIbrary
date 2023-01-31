@@ -22,7 +22,7 @@ noRadioBtn.onclick=()=>{
     checkRadioButton();
 }
 closeForm.onclick=()=>{
-    popUpField.style.cssText='z-index:-100';
+    popUpField.style.cssText='scale:0';
     overlay.classList.remove("active");
 };
 
@@ -35,15 +35,11 @@ closeForm.onclick=()=>{
 // }
 
 let form=document.getElementById("form");
-form.addEventListener("submit",(e)=>{
-    e.preventDefault();
-    const newForm= new FormData(form);
-    const obj= Object.fromEntries(newForm)
-    console.log(obj);
-});
+form.addEventListener('click',(evt)=>{
+    // evt.preventDefault();
+})
 
-let addToLibraryBtn= document.getElementById("add-to-library-btn");
-
+let addToLibraryBtn= document.getElementById("add-btn");
 addToLibraryBtn.onclick=()=>{
     overlay.classList.add('active');
     popUpField.style.cssText='z-index:1';
@@ -92,4 +88,10 @@ function createCard(){
     button.setAttribute('type','button');
     theBack.appendChild(button);
     button.textContent='Delete';
+}
+
+let addBtn=document.querySelector("#form button");
+addBtn.onclick=()=>{
+    popUpField.style.cssText='z-index:-100';
+    overlay.classList.remove("active");
 }
