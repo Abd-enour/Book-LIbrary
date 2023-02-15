@@ -59,8 +59,15 @@ main{
     border-radius: 5px;
     padding: 20px;
     z-index: 1;
-    scale: 1.5;
     background-color: antiquewhite;
+}
+@keyframes popUpField {
+    0%{
+        scale:0;
+    }
+    100%{
+        scale: 1;
+    }
 }
 #closeForm{
     position: absolute;
@@ -72,7 +79,7 @@ main{
     border-radius: 15px;
     cursor: pointer;
 }
-.form-element{
+.input-element{
     padding: 2px 5px;
     margin: 5px;
 }
@@ -123,17 +130,12 @@ main{
     text-decoration: none;
 }
 .book-info{
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    font-size: 28px;
+    font-size: 24px;
     background-color: transparent;
-}
-.card-container img{
-    width: 270px;
-    border: 1px solid black;
-    background: inherit;
-    font-size: 50px;
 }
 .theBack button{
     height: 50px;
@@ -141,55 +143,29 @@ main{
     border: none;
     background-color: rgb(250, 61, 61);
     border-radius: 5px;
-    width: 300px;
+    width: 200px;
     align-self: center;
     justify-self: center;
     cursor: pointer;
     font-size: 24px;
     color: white;
+    margin-bottom: 20px;
 }
 
 .card-container{
     position: relative;
-    width: 350px;
-    height: 400px;
+    width: 300px;
+    height: 310px;
     margin: 10px;
     background: transparent;
-}
-.the-card{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: all 0.5s ease;
-    border-radius: 20px;
-}
-.the-card:hover{
-    transform: rotateY(180deg);
-    transition: transform 1s ease-out;
-}
-.theFront{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    background: yellow;
-    color: #333;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 .theBack{
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
     background: green;
     color: white;
     border-radius: 20px;
-    transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

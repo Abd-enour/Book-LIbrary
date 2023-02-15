@@ -19,20 +19,20 @@
             <div id="closeForm">
                 &times;
             </div>
-            <form action="formInfo.html" id="form" method="post">
-                <div class="form-element">
+            <div id="input-field">
+                <div class="input-element">
                     <label for="bookTitle">Book Title</label>
                     <input type="text" name="Book Title" id="bookTitle" class="userInput" placeholder="Book Title"required>
                 </div>
-                <div class="form-element">
+                <div class="input-element">
                     <label for="author">Author</label>
                     <input type="text" name="Author" id="author" class="userInput" placeholder="Author Name" required>
                 </div>
-                <div class="form-element">
+                <div class="input-element">
                     <label for="BookPages">Number Of Page</label>
-                    <input type="number" name="Number of Pages" id="BookPages" class="userInput" placeholder="Number Of Page"required>
+                    <input type="number" name="Number of Pages" id="BookPages" class="userInput" placeholder="Number Of Page" required>
                 </div>
-               <div class="form-element">
+               <div class="input-element">
                     <span>Have You Read it?</span>
                     <div>YES
                         <input type="radio" id="yes" name="isRead?" value="Yes">
@@ -49,31 +49,9 @@
                     <i class="fa-solid fa-star str5"></i>
                 </div>
                 <button type="submit">Add To Library</button>
-            </form>
-        </div>       
-        <div class="card-container">
-            <div class="the-card">
-                <div class="theFront">
-                    <img src="" alt="book image">
-                </div>
-                <div class="theBack">
-                    <div class="book-info"> 
-                        <abbr title="BOOK Title">
-                            THE MIRACLE MORNING
-                        </abbr>
-                        
-                        <abbr title="BOOK AUTHOR">
-                            HAL ELROD
-                        </abbr>
-                        
-                        <abbr title="NUMBER OF PAGES">
-                            190 pages
-                        </abbr>
-                    </div>
-                    <button type="button">Delete</button>
-                </div>
             </div>
-        </div>
+        </div>       
+        <div id="container" class="container"></div>
     </main>
     <div id="overlay" class="active"></div>
     <footer></footer>
