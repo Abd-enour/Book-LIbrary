@@ -1,25 +1,27 @@
 let rate=document.getElementById("rateBook");
-let radioBtn=document.querySelectorAll("[type='radio']");
-let yesRadioBtn=radioBtn[0];
-let noRadioBtn=radioBtn[1];
+let checkbox=document.querySelector("[type='checkbox']");
 let closeForm=document.getElementById("closeForm");
 let popUpField=document.getElementById("popUp");
 let overlay=document.getElementById("overlay");
 let container=document.getElementById("container");
+let isRead=document.getElementById("isRead");
 
-function checkRadioButton(){
-    let haveRead=document.getElementById("yes").checked;
-    if(haveRead){
+isRead.onclick=()=>{
+    if(isRead.checked){
         rate.classList.remove('hide');
     }else{
         rate.classList.add('hide');
     }
 }
-yesRadioBtn.onclick=()=>{
-    checkRadioButton();
-}
-noRadioBtn.onclick=()=>{
-    checkRadioButton();
+function checkBoxButton(changeStatus){
+    let isChecked=document.getElementById("isRead").checked;
+    if(isChecked){
+        changeStatus.classList.add('read');
+        changeStatus.textContent="Read";
+    }else{
+        changeStatus.classList.add('not-read');
+        changeStatus.textContent='Not Read';
+    }
 }
 closeForm.onclick=()=>{
     popUpField.style.cssText='scale:0';
@@ -35,7 +37,7 @@ let BookArray=[
         title:'The Miricle Morning',
         author:'Pal Hal',
         pages:191,
-        isRead:'Read',
+        isRead:true,
         starsNbr:undefined,
     }
 ];
@@ -72,10 +74,29 @@ function createCard(BookTitle,Author,Pages,isRead,index){
             bookInfo.appendChild(abbr);
             abbr.textContent=Pages;
         }else{
-            let abbr=document.createElement('abbr');
-            abbr.setAttribute('title','Have you read it?');
-            bookInfo.appendChild(abbr);
-            abbr.textContent=isRead;
+        let changeStatus=document.createElement('button');
+        changeStatus.setAttribute('type','button');
+        changeStatus.setAttribute('data-event-click',"false");
+        theBack.appendChild(changeStatus);
+        if(BookArray[index].isRead !== undefined && BookArray[index].isRead !==false){
+            changeStatus.textContent="Read";
+            changeStatus.classList.add('read');
+        }else{
+        checkBoxButton(changeStatus);
+        }
+        changeStatus.addEventListener('click',()=>{
+            if(BookArray[index].isRead){
+                BookArray[index].isRead=false;
+                changeStatus.classList.add('not-read');
+                changeStatus.classList.remove('read');
+                changeStatus.textContent='Not Read';
+            }else{
+                BookArray[index].isRead=true;
+                changeStatus.classList.add('read');
+                changeStatus.classList.remove('not-read');
+                changeStatus.textContent="Read";
+            }
+        });
     }
     }
     let button=document.createElement('button');
@@ -107,12 +128,11 @@ deleteBtn.forEach(function(btn){
 })
 }
 
-function book(title,author,pages,isRead,starsNbr){
+function book(title,author,pages,isRead){
     this.title=title;
     this.author=author;
     this.pages=pages;
     this.isRead=isRead;
-    this.starsNbr=starsNbr;
 }
 
 let addBtn=document.querySelector("#input-field button");
@@ -128,18 +148,16 @@ addBtn.onclick=()=>{
     let BookTitle=input[0].value;
     let Author=input[1].value;
     let Pages=input[2].value;
-    if(input[3].checked){
-         BookArray.push(new book(BookTitle,Author,Pages,"Read"));
-         clearPopUpField(input);
-    }else if(input[4].checked){
-         BookArray.push(new book(BookTitle,Author,Pages,"is Read? No"));
+    if(checkbox.checked){
+         BookArray.push(new book(BookTitle,Author,Pages,true));
+         createCard(BookArray[BookArray.length-1].title,BookArray[BookArray.length-1].author,BookArray[BookArray.length-1].pages,BookArray[BookArray.length-1].isRead,BookArray.length-1);
          clearPopUpField(input);
     }else{
-        BookArray.push(new book(BookTitle,Author,Pages,"is Read? Not Selected"));
+        BookArray.push(new book(BookTitle,Author,Pages,false));
+        createCard(BookArray[BookArray.length-1].title,BookArray[BookArray.length-1].author,BookArray[BookArray.length-1].pages,BookArray[BookArray.length-1].isRead,BookArray.length-1);
         clearPopUpField(input);
     }
 }
-createCard(BookArray[BookArray.length-1].title,BookArray[BookArray.length-1].author,BookArray[BookArray.length-1].pages,BookArray[BookArray.length-1].isRead,BookArray.length-1);
 }
 function clearPopUpField(input) {
     for(let i =0; i<=input.length-1;i++){
