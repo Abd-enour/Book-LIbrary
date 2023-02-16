@@ -39,10 +39,10 @@ let BookArray=[
         starsNbr:undefined,
     }
 ];
-createCard(BookArray[BookArray.length-1].title,BookArray[BookArray.length-1].author,BookArray[BookArray.length-1].pages,BookArray[BookArray.length-1].isRead);
+createCard(BookArray[BookArray.length-1].title,BookArray[BookArray.length-1].author,BookArray[BookArray.length-1].pages,BookArray[BookArray.length-1].isRead,0);
 
-function createCard(BookTitle,Author,Pages,isRead){
-    let index=BookArray.length-1;
+function createCard(BookTitle,Author,Pages,isRead,index){
+    this.index=index;
 
     let cardContainer=document.createElement('div');
     cardContainer.setAttribute('class','card-container');
@@ -95,12 +95,12 @@ deleteBtn.forEach(function(btn){
             if(BookArray.length!==0){
             BookArray.splice(btn.dataset.index,1);
         for(let s=0;s<cnt.length;s++){
-            // console.log(cnt[s]);
             cnt[s].remove();
         }
+        index=0;
         for(let i =0 ;i<BookArray.length;i++){
-            createCard(BookArray[i].title,BookArray[i].author,BookArray[i].pages,BookArray[i].isRead);
-            console.log(index);
+            createCard(BookArray[i].title,BookArray[i].author,BookArray[i].pages,BookArray[i].isRead,index);
+            index++;
         }
        }   
    })}
@@ -139,7 +139,7 @@ addBtn.onclick=()=>{
         clearPopUpField(input);
     }
 }
-createCard(BookArray[BookArray.length-1].title,BookArray[BookArray.length-1].author,BookArray[BookArray.length-1].pages,BookArray[BookArray.length-1].isRead);
+createCard(BookArray[BookArray.length-1].title,BookArray[BookArray.length-1].author,BookArray[BookArray.length-1].pages,BookArray[BookArray.length-1].isRead,BookArray.length-1);
 }
 function clearPopUpField(input) {
     for(let i =0; i<=input.length-1;i++){
