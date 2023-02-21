@@ -26,9 +26,8 @@ header h1{
 main{
     background-color: #dadada ;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(352px,1fr));
+    grid-template-rows: 70px minmax(68vh,1fr) 40px;
     gap:10px;
-    justify-items: center;
 }
 #add-btn{
     background-color: gray;
@@ -42,6 +41,7 @@ main{
     align-self: flex-end;
     margin: 10px;
     grid-column: 1/-1;
+    justify-self: center;
 }
 #add-btn:hover{
     background-color: blue;
@@ -100,31 +100,6 @@ main{
     font-size: 24px;
     cursor: pointer;
 }
-.hide{
-    display: none;
-}
-#rateBook{
-    direction: rtl;
-    text-align: left;
-}
-#rateBook > i:hover{
-    color: yellow;
-}
-.str1:hover~ i{
-    color: yellow;
-}
-.str2:hover~ i{
-    color: yellow;
-}
-.str3:hover~ i{
-    color: yellow;
-}
-.str4:hover~ i{
-    color: yellow;
-}
-.str5:hover~ i{
-    color: yellow;
-}
 /* ------------------------ END OF POP UP FORM ------------------- */
 .book-info abbr{
     text-decoration: none;
@@ -152,15 +127,20 @@ main{
     background-color: greenyellow;
 }
 .not-read{
-    background-color: rgb(255, 86, 86);
-}
-.theBack .dlt-btn{
-    background-color: rgb(250, 61, 61);
+    background-color: rgb(255, 37, 37);
     color: white;
 }
-
+.theBack .dlt-btn{
+    background-color: rgb(90 86 86);
+    color: white;
+}
+.dlt-btn:hover{
+    background-color:#211c1c;
+    color: red;
+}
 .card-container{
     position: relative;
+    display: inline-block;
     width: 300px;
     height: 310px;
     margin: 10px;
@@ -193,4 +173,26 @@ main{
 #overlay.active{
     pointer-events: all;
     opacity: 1;
+}
+/* -------- styling the footer ---------- */
+footer{
+    display: flex;
+    font-size: 20px;
+    background-color: #524f4f;
+    color: #ffff;
+    height: 2em;
+    justify-content: center;
+    align-items: center;
+}
+footer >a{
+    text-decoration: none;
+    background-color: #524f4f;
+}
+#github-logo{
+    background-color: white;
+    transition: transform 0.3s;
+}
+#github-logo:hover{
+    transform: rotate(360deg);
+    
 }

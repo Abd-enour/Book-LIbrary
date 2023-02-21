@@ -1,4 +1,3 @@
-let rate=document.getElementById("rateBook");
 let checkbox=document.querySelector("[type='checkbox']");
 let closeForm=document.getElementById("closeForm");
 let popUpField=document.getElementById("popUp");
@@ -6,13 +5,6 @@ let overlay=document.getElementById("overlay");
 let container=document.getElementById("container");
 let isRead=document.getElementById("isRead");
 
-isRead.onclick=()=>{
-    if(isRead.checked){
-        rate.classList.remove('hide');
-    }else{
-        rate.classList.add('hide');
-    }
-}
 function checkBoxButton(changeStatus){
     let isChecked=document.getElementById("isRead").checked;
     if(isChecked){
@@ -137,14 +129,13 @@ function book(title,author,pages,isRead){
 
 let addBtn=document.querySelector("#input-field button");
 addBtn.onclick=()=>{
-    popUpField.style.cssText='animation:none; scale:0';
-    overlay.classList.remove("active");
-
     let input=document.querySelectorAll('#input-field input');
     Array.from(input);
     if(input[0].value==="" || input[1].value==="" || input[2].value===""){
        return alert("You need to fill up the form");
     }else{
+        popUpField.style.cssText='animation:none; scale:0';
+        overlay.classList.remove("active");
     let BookTitle=input[0].value;
     let Author=input[1].value;
     let Pages=input[2].value;
